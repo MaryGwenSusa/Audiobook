@@ -9,7 +9,9 @@ print(pages)
 speaker = pyttsx3.init() #initialize
 rate = speaker.getProperty('rate')
 speaker.setProperty('rate', 180) #adjusted the speed of reading since its default 200 is too fast
-print(rate)
+
+voices = speaker.getProperty('voices')
+speaker.setProperty('voice', voices[1].id) #change voice for female through changing its index since default is male still male index is 0
 
 for num in range(2, 3): #freely choose the range of pages you want to recall or read aloud
     page = pdfREader.getPage(2) # 0 indexing; can remove the for loop and just choose a single page as a parameter
