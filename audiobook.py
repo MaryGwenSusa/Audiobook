@@ -6,7 +6,8 @@ pdfREader = PyPDF2.PdfFileReader(book) #reads the PDF file linked
 pages = pdfREader.numPages #counts the number of pages of the PDF file linked
 print(pages)
 speaker = pyttsx3.init() #initialize
-page = pdfREader.getPage(3) # 0 indexing
-text = page.extractText() #will extract the text from the chosen page
-speaker.say(text)
-speaker.runAndWait()
+for num in range(2, 3): #freely choose the range of pages you want to recall or read aloud
+    page = pdfREader.getPage() # 0 indexing; can remove the for loop and just choose a single page as a parameter
+    text = page.extractText() #will extract the text from the chosen page
+    speaker.say(text)
+    speaker.runAndWait()
